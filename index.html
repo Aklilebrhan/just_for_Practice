@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>World Explorer Map</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1>World Explorer</h1>
+        <p>Tap or click anywhere on the world map to learn about that place.</p>
+      </div>
+      <button id="themeToggle" class="ghost-btn" type="button" aria-label="Toggle dark mode">
+        🌙 Theme
+      </button>
+    </header>
+
+    <main class="layout">
+      <section class="map-panel" aria-label="Interactive world map">
+        <div id="map" role="application" aria-label="Global map"></div>
+      </section>
+
+      <aside class="info-panel" aria-live="polite">
+        <form id="searchForm" class="search" autocomplete="off">
+          <label for="placeSearch">Find a place</label>
+          <div class="search-row">
+            <input
+              id="placeSearch"
+              name="placeSearch"
+              type="text"
+              placeholder="Try: Paris, Tokyo, Cairo..."
+              required
+            />
+            <button type="submit">Go</button>
+          </div>
+        </form>
+
+        <div class="actions-row">
+          <button id="locateBtn" class="locate-btn" type="button">Use my location</button>
+          <button id="saveBtn" class="ghost-btn" type="button">Save place</button>
+        </div>
+
+        <section id="details" class="details-card" tabindex="0">
+          <h2>Place details</h2>
+          <p class="hint">Select a point on the map to load details.</p>
+        </section>
+
+        <section class="saved-places" aria-label="Saved places">
+          <h3>Saved places</h3>
+          <ul id="savedPlacesList">
+            <li class="hint">No saved places yet.</li>
+          </ul>
+        </section>
+
+        <section class="tips">
+          <h3>Features</h3>
+          <ul>
+            <li>Interactive global map with zoom controls.</li>
+            <li>Tap/click to fetch country, city, and coordinates.</li>
+            <li>Search by place name and jump to location.</li>
+            <li>Optional geolocation to center on your position.</li>
+            <li>Saved places (stored locally in your browser).</li>
+            <li>Responsive layout for phones, tablets, and desktops.</li>
+          </ul>
+        </section>
+      </aside>
+    </main>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="app.js"></script>
+  </body>
+</html>
